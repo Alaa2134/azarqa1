@@ -1,4 +1,3 @@
-import { MadeWithDyad } from "@/components/made-with-elmony";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -22,9 +21,6 @@ const Index = () => {
           </Button>
         </CardContent>
       </Card>
-      <div className="mt-8">
-        <MadeWithDyad />
-      </div>
     </div>
   );
 };
