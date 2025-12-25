@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4">
+    <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center bg-background text-foreground p-4">
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">Welcome to Your App!</CardTitle>
@@ -18,7 +18,7 @@ const Index = () => {
             You can start by modifying this page or adding new routes and components.
           </p>
           <Button asChild>
-            <Link to="/about">Learn More</Link> {/* Link to the About page */}
+            <Link to="/about">Learn More</Link>
           </Button>
         </CardContent>
       </Card>
