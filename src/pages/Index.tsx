@@ -18,7 +18,7 @@ const Index = () => {
             You can start by modifying this page or adding new routes and components.
           </p>
           <Button asChild>
-            <Link to="/about">Learn More</Link>
+            <Link to="/about">Learn More</Link> {/* Link to the About page */}
           </Button>
         </CardContent>
       </Card>
