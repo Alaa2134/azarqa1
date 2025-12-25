@@ -1,0 +1,219 @@
+Table Name,Column Name,Data Type,Nullable,Default Value,Description
+achievements,id,uuid,NO,gen_random_uuid(),معرف الإنجاز
+achievements,name_ar,varchar,NO,,الاسم بالعربي
+achievements,name_en,varchar,NO,,الاسم بالإنجليزي
+achievements,description_ar,text,YES,,الوصف بالعربي
+achievements,description_en,text,YES,,الوصف بالإنجليزي
+achievements,type,varchar,NO,'general',نوع الإنجاز
+achievements,target_value,integer,YES,1,القيمة المستهدفة
+achievements,points_reward,integer,YES,10,النقاط المكتسبة
+achievements,icon,varchar,YES,'award',الأيقونة
+achievements,is_active,boolean,YES,true,نشط
+achievements,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+activity_logs,id,uuid,NO,gen_random_uuid(),معرف السجل
+activity_logs,user_id,uuid,NO,,معرف المستخدم
+activity_logs,user_type,varchar,NO,,نوع المستخدم
+activity_logs,activity_type,varchar,NO,,نوع النشاط
+activity_logs,activity_data,jsonb,YES,,بيانات النشاط
+activity_logs,course_id,uuid,YES,,معرف الدورة
+activity_logs,lesson_id,uuid,YES,,معرف الدرس
+activity_logs,points_earned,integer,YES,0,النقاط المكتسبة
+activity_logs,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+adaptive_learning_paths,id,uuid,NO,gen_random_uuid(),معرف المسار
+adaptive_learning_paths,teacher_id,uuid,NO,,معرف المعلم
+adaptive_learning_paths,name,varchar,NO,,اسم المسار
+adaptive_learning_paths,description,text,YES,,الوصف
+adaptive_learning_paths,target_level,varchar,YES,'intermediate',المستوى المستهدف
+adaptive_learning_paths,is_active,boolean,YES,true,نشط
+adaptive_learning_paths,settings,jsonb,YES,'{}',الإعدادات
+adaptive_learning_paths,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+adaptive_learning_paths,updated_at,timestamptz,NO,now(),تاريخ التحديث
+ai_conversations,id,uuid,NO,gen_random_uuid(),معرف المحادثة
+ai_conversations,user_id,uuid,NO,,معرف المستخدم
+ai_conversations,course_id,uuid,YES,,معرف الدورة
+ai_conversations,lesson_id,uuid,YES,,معرف الدرس
+ai_conversations,context_type,text,NO,'general',نوع السياق
+ai_conversations,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+ai_conversations,updated_at,timestamptz,YES,now(),تاريخ التحديث
+ai_messages,id,uuid,NO,gen_random_uuid(),معرف الرسالة
+ai_messages,conversation_id,uuid,YES,,معرف المحادثة
+ai_messages,role,text,NO,,الدور
+ai_messages,content,text,NO,,المحتوى
+ai_messages,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+announcements,id,uuid,NO,gen_random_uuid(),معرف الإعلان
+announcements,author_id,uuid,NO,,معرف الكاتب
+announcements,title,text,NO,,العنوان
+announcements,content,text,NO,,المحتوى
+announcements,target_role,app_role,YES,,الدور المستهدف
+announcements,is_pinned,boolean,YES,false,مثبت
+announcements,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+assessments,id,uuid,NO,gen_random_uuid(),معرف التقييم
+assessments,student_id,uuid,NO,,معرف الطالب
+assessments,course_id,uuid,NO,,معرف الدورة
+assessments,lesson_id,uuid,YES,,معرف الدرس
+assessments,title,text,NO,,العنوان
+assessments,score,numeric,YES,,الدرجة
+assessments,max_score,numeric,YES,100,الدرجة القصوى
+assessments,feedback,text,YES,,التغذية الراجعة
+assessments,assessed_at,timestamptz,YES,now(),تاريخ التقييم
+badges,id,uuid,NO,gen_random_uuid(),معرف الشارة
+badges,name_ar,varchar,NO,,الاسم بالعربي
+badges,name_en,varchar,NO,,الاسم بالإنجليزي
+badges,description_ar,text,YES,,الوصف بالعربي
+badges,description_en,text,YES,,الوصف بالإنجليزي
+badges,category,varchar,NO,'achievement',الفئة
+badges,icon,varchar,NO,'trophy',الأيقونة
+badges,points_required,integer,YES,0,النقاط المطلوبة
+badges,is_active,boolean,YES,true,نشط
+badges,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+courses,id,uuid,NO,gen_random_uuid(),معرف الدورة
+courses,teacher_id,uuid,NO,,معرف المعلم
+courses,title,text,NO,,العنوان
+courses,description,text,YES,,الوصف
+courses,subject,text,NO,,المادة
+courses,grade_level,text,YES,,المستوى الدراسي
+courses,price,numeric,YES,0,السعر
+courses,thumbnail_url,text,YES,,صورة الغلاف
+courses,is_active,boolean,YES,true,نشط
+courses,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+courses,updated_at,timestamptz,YES,now(),تاريخ التحديث
+enrollments,id,uuid,NO,gen_random_uuid(),معرف التسجيل
+enrollments,student_id,uuid,NO,,معرف الطالب
+enrollments,course_id,uuid,NO,,معرف الدورة
+enrollments,status,text,YES,'active',الحالة
+enrollments,enrolled_at,timestamptz,YES,now(),تاريخ التسجيل
+enrollments,completed_at,timestamptz,YES,,تاريخ الإكمال
+flashcards,id,uuid,NO,gen_random_uuid(),معرف البطاقة
+flashcards,course_id,uuid,YES,,معرف الدورة
+flashcards,lesson_id,uuid,YES,,معرف الدرس
+flashcards,front_ar,text,NO,,الوجه الأمامي بالعربي
+flashcards,front_en,text,YES,,الوجه الأمامي بالإنجليزي
+flashcards,back_ar,text,NO,,الوجه الخلفي بالعربي
+flashcards,back_en,text,YES,,الوجه الخلفي بالإنجليزي
+flashcards,difficulty,varchar,YES,'medium',الصعوبة
+flashcards,order_index,integer,YES,0,الترتيب
+flashcards,is_ai_generated,boolean,YES,false,مولد بالذكاء الاصطناعي
+flashcards,is_active,boolean,YES,true,نشط
+flashcards,created_by,uuid,YES,,أنشأ بواسطة
+flashcards,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+groups,id,uuid,NO,gen_random_uuid(),معرف المجموعة
+groups,teacher_id,uuid,NO,,معرف المعلم
+groups,course_id,uuid,YES,,معرف الدورة
+groups,name,text,NO,,اسم المجموعة
+groups,description,text,YES,,الوصف
+groups,avatar_url,text,YES,,صورة المجموعة
+groups,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+groups,updated_at,timestamptz,YES,now(),تاريخ التحديث
+group_members,id,uuid,NO,gen_random_uuid(),معرف العضوية
+group_members,group_id,uuid,NO,,معرف المجموعة
+group_members,student_id,uuid,NO,,معرف الطالب
+group_members,joined_at,timestamptz,YES,now(),تاريخ الانضمام
+group_messages,id,uuid,NO,gen_random_uuid(),معرف الرسالة
+group_messages,group_id,uuid,NO,,معرف المجموعة
+group_messages,sender_id,uuid,NO,,معرف المرسل
+group_messages,sender_type,text,NO,,نوع المرسل
+group_messages,content,text,NO,,المحتوى
+group_messages,file_url,text,YES,,رابط الملف
+group_messages,file_name,text,YES,,اسم الملف
+group_messages,file_type,text,YES,,نوع الملف
+group_messages,reply_to_id,uuid,YES,,رد على
+group_messages,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+lessons,id,uuid,NO,gen_random_uuid(),معرف الدرس
+lessons,course_id,uuid,NO,,معرف الدورة
+lessons,title,text,NO,,العنوان
+lessons,description,text,YES,,الوصف
+lessons,content,text,YES,,المحتوى
+lessons,video_url,text,YES,,رابط الفيديو
+lessons,pdf_url,text,YES,,رابط PDF
+lessons,pdf_name,text,YES,,اسم PDF
+lessons,order_index,integer,YES,0,الترتيب
+lessons,duration_minutes,integer,YES,,المدة بالدقائق
+lessons,is_published,boolean,YES,false,منشور
+lessons,ai_summary,text,YES,,ملخص AI
+lessons,ai_key_points,jsonb,YES,,نقاط رئيسية AI
+lessons,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+lesson_progress,id,uuid,NO,gen_random_uuid(),معرف التقدم
+lesson_progress,student_id,uuid,NO,,معرف الطالب
+lesson_progress,lesson_id,uuid,NO,,معرف الدرس
+lesson_progress,course_id,uuid,NO,,معرف الدورة
+lesson_progress,progress_percentage,integer,YES,100,نسبة التقدم
+lesson_progress,completed_at,timestamptz,NO,now(),تاريخ الإكمال
+notifications,id,uuid,NO,gen_random_uuid(),معرف الإشعار
+notifications,user_id,uuid,NO,,معرف المستخدم
+notifications,title,text,NO,,العنوان
+notifications,message,text,NO,,الرسالة
+notifications,type,text,NO,'general',النوع
+notifications,link,text,YES,,الرابط
+notifications,meeting_id,uuid,YES,,معرف الاجتماع
+notifications,is_read,boolean,NO,false,مقروء
+notifications,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+parents,id,uuid,NO,gen_random_uuid(),معرف ولي الأمر
+parents,user_id,uuid,NO,,معرف المستخدم
+parents,occupation,text,YES,,المهنة
+parents,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+parent_students,id,uuid,NO,gen_random_uuid(),معرف العلاقة
+parent_students,parent_id,uuid,NO,,معرف ولي الأمر
+parent_students,student_id,uuid,NO,,معرف الطالب
+parent_students,relationship,text,YES,,العلاقة
+parent_students,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+profiles,id,uuid,NO,,معرف الملف الشخصي
+profiles,full_name,text,NO,,الاسم الكامل
+profiles,email,text,YES,,البريد الإلكتروني
+profiles,phone,text,YES,,الهاتف
+profiles,whatsapp_number,text,YES,,رقم واتساب
+profiles,avatar_url,text,YES,,صورة الملف الشخصي
+profiles,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+profiles,updated_at,timestamptz,YES,now(),تاريخ التحديث
+quizzes,id,uuid,NO,gen_random_uuid(),معرف الاختبار
+quizzes,teacher_id,uuid,NO,,معرف المعلم
+quizzes,course_id,uuid,NO,,معرف الدورة
+quizzes,lesson_id,uuid,YES,,معرف الدرس
+quizzes,title,text,NO,,العنوان
+quizzes,description,text,YES,,الوصف
+quizzes,questions,jsonb,NO,'[]',الأسئلة
+quizzes,time_limit_minutes,integer,YES,,الوقت المحدد
+quizzes,is_published,boolean,NO,false,منشور
+quizzes,created_at,timestamptz,NO,now(),تاريخ الإنشاء
+quizzes,updated_at,timestamptz,NO,now(),تاريخ التحديث
+quiz_attempts,id,uuid,NO,gen_random_uuid(),معرف المحاولة
+quiz_attempts,quiz_id,uuid,NO,,معرف الاختبار
+quiz_attempts,student_id,uuid,NO,,معرف الطالب
+quiz_attempts,answers,jsonb,NO,'[]',الإجابات
+quiz_attempts,score,numeric,YES,,الدرجة
+quiz_attempts,correct_answers,integer,YES,,الإجابات الصحيحة
+quiz_attempts,total_questions,integer,NO,,إجمالي الأسئلة
+quiz_attempts,started_at,timestamptz,NO,now(),وقت البدء
+quiz_attempts,completed_at,timestamptz,YES,,وقت الانتهاء
+students,id,uuid,NO,gen_random_uuid(),معرف الطالب
+students,user_id,uuid,NO,,معرف المستخدم
+students,grade_level,text,YES,,المستوى الدراسي
+students,school_name,text,YES,,اسم المدرسة
+students,total_points,integer,YES,0,إجمالي النقاط
+students,current_level,integer,YES,1,المستوى الحالي
+students,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+teachers,id,uuid,NO,gen_random_uuid(),معرف المعلم
+teachers,user_id,uuid,NO,,معرف المستخدم
+teachers,bio,text,YES,,نبذة
+teachers,specialization,text,YES,,التخصص
+teachers,experience_years,integer,YES,0,سنوات الخبرة
+teachers,education,text,YES,,التعليم
+teachers,is_verified,boolean,YES,false,موثق
+teachers,rating,numeric,YES,0,التقييم
+teachers,total_reviews,integer,YES,0,عدد التقييمات
+teachers,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+user_roles,id,uuid,NO,gen_random_uuid(),معرف الدور
+user_roles,user_id,uuid,NO,,معرف المستخدم
+user_roles,role,app_role,NO,,الدور
+user_roles,created_at,timestamptz,YES,now(),تاريخ الإنشاء
+zoom_meetings,id,uuid,NO,gen_random_uuid(),معرف الاجتماع
+zoom_meetings,teacher_id,uuid,NO,,معرف المعلم
+zoom_meetings,course_id,uuid,YES,,معرف الدورة
+zoom_meetings,title,text,NO,,العنوان
+zoom_meetings,description,text,YES,,الوصف
+zoom_meetings,meeting_url,text,YES,,رابط الاجتماع
+zoom_meetings,meeting_id,text,YES,,معرف Zoom
+zoom_meetings,scheduled_at,timestamptz,YES,,الموعد المحدد
+zoom_meetings,duration_minutes,integer,YES,60,المدة بالدقائق
+zoom_meetings,status,text,YES,'scheduled',الحالة
+zoom_meetings,is_recurring,boolean,YES,false,متكرر
+zoom_meetings,created_at,timestamptz,YES,now(),تاريخ الإنشاء
